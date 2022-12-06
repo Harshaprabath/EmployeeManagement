@@ -1,0 +1,7 @@
+﻿﻿Update-Database -Project EmployeeManagement.Data -StartUp EmployeeManagement.Api -Verbose
+
+Add-Migration EmployeeManagement00001 -Project  EmployeeManagement.Data -StartUp EmployeeManagement.Api -Verbose
+
+
+Script-Migration -From EmployeeManagement00001 -Project EmployeeManagement.Data -StartUp EmployeeManagement.Api -Verbose
+

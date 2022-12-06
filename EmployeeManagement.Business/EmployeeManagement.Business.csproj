@@ -6,4 +6,11 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeeManagement.Data\EmployeeManagement.Data.csproj" />
+    <ProjectReference Include="..\EmployeeManagement.Model\EmployeeManagement.Model.csproj" />
+    <ProjectReference Include="..\EmployeeManagement.Util\EmployeeManagement.Util.csproj" />
+    <ProjectReference Include="..\EmployeeManagement.ViewModel\EmployeeManagement.ViewModel.csproj" />
+  </ItemGroup>
+
 </Project>
