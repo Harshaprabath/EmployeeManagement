@@ -1,0 +1,11 @@
+.cus_btn{
+    margin-top: 5px;
+    margin-bottom: 5px;
+    margin-right: 20px;
+    margin-left: 10px;
+}
+.example-button-container {
+    display: flex;
+    justify-content: center;
+    width: 120px;
+  }

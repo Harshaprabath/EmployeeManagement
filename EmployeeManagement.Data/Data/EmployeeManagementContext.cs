@@ -1,17 +1,16 @@
 ﻿using EmployeeManagement.Data.Configurations;
 using EmployeeManagement.Model;
 using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace EmployeeManagement.Data.Data
 {
     public class EmployeeManagementContext : DbContext
     {
         public EmployeeManagementContext()
+        {
+
+        }
+        public EmployeeManagementContext(DbContextOptions<EmployeeManagementContext> options) : base(options)
         {
 
         }

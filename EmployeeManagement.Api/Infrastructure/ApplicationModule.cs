@@ -1,10 +1,5 @@
 ﻿using Autofac;
-using Microsoft.AspNetCore.Http;
 using EmployeeManagement.Business;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
 namespace EmployeeManagement.Api.Infrastructure
 {
@@ -13,13 +8,12 @@ namespace EmployeeManagement.Api.Infrastructure
         public ApplicationModule()
         {
 
-
         }
 
         protected override void Load(ContainerBuilder builder)
         {
             builder.RegisterType<EmployeeService>()
-              .As<EmployeeService>()
+              .As<IEmployeeService>()
               .InstancePerLifetimeScope();
         }
 

@@ -1,29 +1,19 @@
 ﻿using EmployeeManagement.Data.Data;
 using EmployeeManagement.Model;
 using EmployeeManagement.Model.Enums;
-using EmployeeManagement.Util;
 using EmployeeManagement.ViewModel;
 using EmployeeManagement.ViewModel.Common;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Graph;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace EmployeeManagement.Business
 {
-    public class EmployeeService
+    public class EmployeeService : IEmployeeService
     {
         private readonly EmployeeManagementContext employeeDb;
-        private readonly IConfiguration config;
-
-        public EmployeeService(EmployeeManagementContext employeeDb, IConfiguration config)
+        
+        public EmployeeService(EmployeeManagementContext employeeDb)
         {
             this.employeeDb = employeeDb;
-            this.config = config;          
+          
         }
 
         public List<EmployeeViewModel> GetAll()
@@ -32,7 +22,7 @@ namespace EmployeeManagement.Business
 
             var query = employeeDb.Employees
                             .Where(e => e.IsActive == true)
-                            .OrderBy(c => c.CreatedDate); 
+                            .OrderByDescending(c => c.CreatedDate); 
 
             var employeeList = query.ToList();
 
@@ -71,7 +61,7 @@ namespace EmployeeManagement.Business
         }
 
 
-        public async Task<ResponseViewModel> SaveSubject(EmployeeViewModel vm)
+        public async Task<ResponseViewModel> SaveEmployee(EmployeeViewModel vm)
         {
             var response = new ResponseViewModel();
             try
@@ -199,7 +189,7 @@ namespace EmployeeManagement.Business
             return response;
         }
 
-        public async Task<ResponseViewModel> DeleteEmploye(int id)
+        public async Task<ResponseViewModel> DeleteEmployee(int id)
         {
             var response = new ResponseViewModel();
 

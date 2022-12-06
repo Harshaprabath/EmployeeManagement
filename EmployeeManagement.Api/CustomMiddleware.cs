@@ -9,6 +9,7 @@ namespace EmployeeManagement.Api
         {
             service.AddEntityFrameworkSqlServer().AddDbContext<EmployeeManagementContext>(options =>
             {
+               
                 options.UseLazyLoadingProxies()
                 .UseSqlServer(configuration["EmployeeDbConnectionString"],
                               sqlServerOptionsAction: sqlOptions =>
